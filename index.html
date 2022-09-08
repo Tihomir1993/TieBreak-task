@@ -20,7 +20,10 @@
         <div class="container">
 
             <div class="image-wrapper">
-
+                <button class="button-html">
+                        HTML Button
+                        <span>This popup window opens on mouseover</span>
+                    </button>
             </div>
 
             <div class="site-form-contact">
@@ -84,6 +87,7 @@
     /* Look for any elements with the class "custom-select": */
     x = document.getElementsByClassName("custom-select");
     l = x.length;
+    console.log(l);
     for (i = 0; i < l; i++) {
         selElmnt = x[i].getElementsByTagName("select")[0];
         ll = selElmnt.length;

@@ -49,10 +49,58 @@ button {
   background-size: 100% 100%;
 }
 
+.site-form .image-wrapper .button-html {
+  display: none;
+}
+
 @media (min-width: 960px) {
   .site-form .image-wrapper {
     background-image: url(../images/car-desktop.jpg);
     height: 450px;
+    position: relative;
+  }
+  .site-form .image-wrapper .button-html {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: Roboto;
+    border: 3px solid #a1a1a1;
+    border-radius: 10px;
+    border-top: 1px solid #a1a1a1;
+    border-left: 1px solid #a1a1a1;
+    border-right: 2px solid #a1a1a1;
+    width: 100%;
+    max-width: 165px;
+  }
+  .site-form .image-wrapper .button-html span {
+    position: absolute;
+    right: 0px;
+    bottom: 40px;
+    width: 165px;
+    padding: 25px;
+    z-index: 100;
+    background: rgba(89, 89, 89, 0.8);
+    color: #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    opacity: .8;
+    cursor: default;
+  }
+  .site-form .image-wrapper .button-html span:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #585858;
+    opacity: .8;
+    left: 46%;
+    bottom: -12px;
   }
 }
 
@@ -123,7 +171,8 @@ button {
   font-size: 45px;
   font-weight: bold;
   color: #3d4537;
-  background-color: #f8ba49;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(35%, #f79c27), color-stop(44%, #f8aa36), color-stop(53%, #f8ba49));
+  background: linear-gradient(0deg, #f79c27 35%, #f8aa36 44%, #f8ba49 53%);
   padding: 12px 0;
   max-width: 350px;
   border-radius: 10px;
@@ -132,6 +181,7 @@ button {
   position: relative;
   margin-top: 20px;
   margin-bottom: 30px;
+  border: 0;
 }
 
 .site-form-contact .btn-submit::before {
@@ -206,8 +256,8 @@ button {
 @media (min-width: 960px) {
   .site-form-contact {
     border: 15px solid #f8ba49;
-    -o-border-image: repeating-linear-gradient(90deg, #ffffff, #ffffff 30px, #f8ba49 30px, #f8ba49 60px) 30;
-       border-image: repeating-linear-gradient(90deg, #ffffff, #ffffff 30px, #f8ba49 30px, #f8ba49 60px) 30;
+    -o-border-image: repeating-linear-gradient(90deg, #ffffff, #ffffff 30px, #f8ba49 30px, #f8ba49 59px) 30;
+       border-image: repeating-linear-gradient(90deg, #ffffff, #ffffff 30px, #f8ba49 30px, #f8ba49 59px) 30;
     -webkit-box-shadow: none;
             box-shadow: none;
     -webkit-box-orient: horizontal;
@@ -253,7 +303,7 @@ button {
 
 .select-selected.select-arrow-active:after {
   border-color: transparent transparent #474747 transparent;
-  top: 17px;
+  top: 14px;
 }
 
 .select-items div,
