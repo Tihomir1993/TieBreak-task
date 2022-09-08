@@ -1,0 +1,23 @@
+body {
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    font-family: Roboto;
+    margin: 20px 10px;
+}
+
+input {
+    font-family: Roboto;
+    padding: 15px 20px;
+    background-color: $field-color;
+    outline: none;
+    font-size: 22px;
+    border: 0;
+    @media (min-width: 960px) {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}
+
+button {
+    font-family: Roboto;
+}
