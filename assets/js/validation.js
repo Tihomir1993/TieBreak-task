@@ -33,7 +33,7 @@ function isValidPhoneNumber(value, minLength, maxLength) {
     if (regexValid.test(value)) {
         if (parseInt(phoneNumber.charAt(0)) != 0) {
             isValid = errorData.errorPhoneZero;
-        } else if (value.length < minLength || value.length >= maxLength) {
+        } else if (value.length < minLength || value.length > maxLength) {
             isValid = errorData.limitDigits;
         } else {
             isValid = true
@@ -62,15 +62,26 @@ btnSubmit.addEventListener('click', function() {
     Object.keys(errorMessage).filter((el) => {
         errorMessage[el].innerHTML = null;
     })
+    let isSuccessful = true;
     if (isEmptyField(getValueFromUser, errorMessage)) {
         if (isValidPhoneNumber(getValueFromUser.phone, 5, 10) !== true) {
+            isSuccessful = false;
             errorMessage.phone.innerHTML = isValidPhoneNumber(getValueFromUser.phone, 5, 10)
         }
         if (!isValidEmail(getValueFromUser.email)) {
+            isSuccessful = false;
             errorMessage.email.innerHTML = errorData.errorEmail;
         }
         if (!validateFullName(getValueFromUser.fullname)) {
+            isSuccessful = false;
             errorMessage.fullname.innerHTML = errorData.errorFullname;
         }
+    } else {
+        isSuccessful = false;
+    }
+    if (isSuccessful) {
+        setTimeout(() => {
+            alert(errorData.successfulMsg);
+        }, 1000)
     }
 })
