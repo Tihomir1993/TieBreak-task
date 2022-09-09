@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <form class='site-form' method="post">
+    <form class='site-form'>
         <div class="container">
             <div class="image-wrapper">
                 <button class="button-html">
@@ -67,16 +67,17 @@
                                 <div data-value="+359" data-name="Bulgaria">Bulgaria</div>
                                 <div data-value="+44" data-name="UK">UK</div>
                             </div>
+                            <span id="notValidEmail"></span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-lg-4">
 
                     <div class="submit-wrapper">
-                        <button class="btn-submit" type="submit" onclick="dada()">Send</button>
+                        <button class="btn-submit" type="button">Send</button>
                         <div class="terms">
-                            <label for="vehicle1"> I agree with the <a href="#">Terms & Conditions</a></label><br>
                             <input type="checkbox" class="check-terms" name="temrms">
+                            <label for="vehicle1"> I agree with the <a href="#">Terms & Conditions</a></label><br>
                         </div>
                     </div>
                 </div>
@@ -108,22 +109,30 @@
                 isValid = false
             }
         })
-        return isValid
+        return isValid;
     }
 
     function isValidEmail(value) {
         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)
     }
 
-    function setValueInPhoneNumber() {
-        if (document.getElementById('mySelect').value) {
-            document.getElementById("countryCode").setAttribute('value', document.getElementById('mySelect').value);
-        } else {
-            document.getElementById("countryCode").setAttribute('value', null);
-        }
+    // function validatePhoneNumber() {
+    //     let phone = document.getElementsByName('phone')[0].value;
+    //     if (validatePhoneNumbe(phone)) {
+    //         console.log(true);
+    //     } else {
+    //         console.log(false);
+    //     }
+    // }
+
+    function isValidPhoneNumber(value) {
+        var re = /^0[\+]?[(]?[0-9]{2}[)]?[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{0,5}$/im;
+        return re.test(value);
     }
 
-    function dada() {
+
+    let btnSubmit = document.querySelector('.btn-submit');
+    btnSubmit.addEventListener('click', function() {
         let getValueFromUser = {}
         getValueFromUser.fullname = document.getElementsByName('fullname')[0].value
         getValueFromUser.email = document.getElementsByName('email')[0].value
@@ -131,17 +140,17 @@
         getValueFromUser.countryCode = countryCode;
         getValueFromUser.temrms = document.getElementsByName('temrms')[0].checked
 
-
-        // if (this.isEmptyField(getValueFromUser)) {
-        //     console.log('ok')
-        // }
-        // if (!this.isValidEmail(getValueFromUser.email)) {
-        //     document.getElementById('notValidEmail').innerHTML = 'dsds'
-        // } else {
-        //     document.getElementById('notValidEmail').innerHTML = null
-        // }
-
-    }
+        if (isEmptyField(getValueFromUser)) {
+            console.log('ok')
+        } else {
+            console.log('not');
+        }
+        if (!isValidPhoneNumber(getValueFromUser.phone) || !isValidEmail(getValueFromUser.email)) {
+            document.getElementById('notValidEmail').innerHTML = 'dsds'
+        } else {
+            document.getElementById('notValidEmail').innerHTML = null
+        }
+    })
 </script>
 
 </html>
