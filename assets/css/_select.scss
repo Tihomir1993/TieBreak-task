@@ -1,63 +1,142 @@
-.custom-select {
+// .select-wrapper {
+//     position: relative;
+//     user-select: none;
+//     width: 100%;
+// }
+// .select {
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     border-width: 0 2px 0 2px;
+//     border-style: solid;
+//     border-color: #394a6d;
+// }
+// .select__trigger {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     padding: 0 22px;
+//     font-size: 20px;
+//     font-weight: 300;
+//     color: #3b3b3b;
+//     height: 60px;
+//     line-height: 60px;
+//     background: #ffffff;
+//     cursor: pointer;
+//     border-width: 2px 0 2px 0;
+//     border-style: solid;
+//     border-color: #394a6d;
+// }
+// .custom-options {
+//     position: absolute;
+//     display: block;
+//     top: 100%;
+//     left: 0;
+//     right: 0;
+//     border: 2px solid #394a6d;
+//     border-top: 0;
+//     background: #fff;
+//     transition: all 0.5s;
+//     opacity: 0;
+//     visibility: hidden;
+//     pointer-events: none;
+//     z-index: 2;
+// }
+// .select.open .custom-options {
+//     opacity: 1;
+//     visibility: visible;
+//     pointer-events: all;
+// }
+// .custom-option {
+//     position: relative;
+//     display: block;
+//     padding: 0 22px 0 22px;
+//     font-size: 22px;
+//     font-weight: 300;
+//     color: #3b3b3b;
+//     line-height: 60px;
+//     cursor: pointer;
+//     transition: all 0.5s;
+// }
+// .custom-option:hover {
+//     cursor: pointer;
+//     background-color: #b2b2b2;
+// }
+// .custom-option.selected {
+//     color: #ffffff;
+//     background-color: #305c91;
+// }
+// .arrow {
+//     position: relative;
+//     height: 15px;
+//     width: 15px;
+// }
+// .arrow::before,
+// .arrow::after {
+//     content: "";
+//     position: absolute;
+//     bottom: 0px;
+//     width: 0.15rem;
+//     height: 100%;
+//     transition: all 0.5s;
+// }
+// .arrow::before {
+//     left: -5px;
+//     transform: rotate(45deg);
+//     background-color: #394a6d;
+// }
+// .arrow::after {
+//     left: 5px;
+//     transform: rotate(-45deg);
+//     background-color: #394a6d;
+// }
+// .open .arrow::before {
+//     left: -5px;
+//     transform: rotate(-45deg);
+// }
+// .open .arrow::after {
+//     left: 5px;
+//     transform: rotate(45deg);
+// }
+.dropdown {
     position: relative;
-}
-
-.custom-select select {
-    display: none;
-}
-
-.select-selected {
-    background-color: $field-color;
-}
-
-.select-selected:after {
-    position: absolute;
-    content: "";
-    color: $field-text-color;
-    top: 28px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: $field-text-color transparent transparent transparent;
-    @media(min-width: 960px) {
-        top: 20px;
+    width: 100%;
+    &:after {
+        content: "";
+        background-image: url(../images/svg/triangle.svg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        transform: translateY(-50%);
     }
-}
-
-.select-selected.select-arrow-active:after {
-    border-color: transparent transparent $field-text-color transparent;
-    top: 14px;
-}
-
-.select-items div,
-.select-selected {
-    color: $field-text-color;
-    padding: 15px 20px;
-    font-size: 22px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-    @media(min-width: 960px) {
-        font-size: 16px;
-        padding: 10px 20px;
+    .country {
+        cursor: pointer;
     }
-}
-
-.select-items {
-    position: absolute;
-    background-color: $field-color;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-}
-
-.select-hide {
-    display: none;
-}
-
-.select-items div:hover,
-.same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
+    &.active {
+        .option {
+            display: block;
+            position: absolute;
+            top: 45px;
+            width: 100%;
+            background: red;
+            overflow: hidden;
+            z-index: 1;
+            div {
+                background: #e8e8e8;
+                cursor: pointer;
+                padding: 15px;
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+    }
+    .option {
+        display: none;
+    }
 }
