@@ -125,6 +125,7 @@
             width: 100%;
             background: red;
             overflow: hidden;
+            z-index: 1;
             div {
                 background: #e8e8e8;
                 cursor: pointer;

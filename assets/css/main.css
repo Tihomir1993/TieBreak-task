@@ -25,6 +25,33 @@ button {
   font-family: Roboto;
 }
 
+.error-country,
+.error-phone,
+.error-email,
+.error-fullname,
+.error-terms {
+  color: red;
+  display: inline-block;
+}
+
+.error-country,
+.error-phone,
+.error-email,
+.error-fullname {
+  color: red;
+  margin-left: 50px;
+}
+
+.error-terms {
+  margin-left: 60px;
+}
+
+@media (min-width: 960px) {
+  .error-terms {
+    margin-left: 0;
+  }
+}
+
 .site-form {
   position: absolute;
   left: 50%;
@@ -300,6 +327,7 @@ button {
   width: 100%;
   background: red;
   overflow: hidden;
+  z-index: 1;
 }
 
 .dropdown.active .option div {

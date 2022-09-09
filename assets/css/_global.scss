@@ -21,3 +21,27 @@ input {
 button {
     font-family: Roboto;
 }
+
+.error-country,
+.error-phone,
+.error-email,
+.error-fullname,
+.error-terms {
+    color: red;
+    display: inline-block;
+}
+
+.error-country,
+.error-phone,
+.error-email,
+.error-fullname {
+    color: red;
+    margin-left: 50px;
+}
+
+.error-terms {
+    margin-left: 60px;
+    @media (min-width: 960px) {
+        margin-left: 0;
+    }
+}
